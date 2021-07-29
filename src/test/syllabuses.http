@@ -1,0 +1,28 @@
+POST localhost:8080/api/syllabuses
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "syllabus"
+}
+
+###
+GET localhost:8080/api/syllabuses
+Accept: application/json
+
+###
+GET localhost:8080/api/syllabuses/1
+Accept: application/json
+
+###
+PUT localhost:8080/api/syllabuses/1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "syllabusUpdate"
+}
+###
+DELETE localhost:8080/api/syllabuses/1
+
+###
