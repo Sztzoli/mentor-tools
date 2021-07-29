@@ -1,0 +1,30 @@
+POST localhost:8080/api/modules
+Accept: application/json
+Content-Type: application/json
+
+{
+  "title": "title",
+  "url": "url"
+}
+
+###
+GET localhost:8080/api/modules
+Accept: application/json
+
+###
+GET localhost:8080/api/modules/1
+Accept: application/json
+
+###
+PUT localhost:8080/api/modules/1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "title": "moduleUpdate",
+  "url": "urlUpdated"
+}
+###
+DELETE localhost:8080/api/modules/1
+
+###
