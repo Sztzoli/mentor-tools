@@ -1,0 +1,32 @@
+POST localhost:8080/api/trainingclasses
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "class1",
+  "startDate": "2021-01-01",
+  "endDate": "2021-04-01"
+}
+
+###
+GET localhost:8080/api/trainingclasses
+Accept: application/json
+
+###
+GET localhost:8080/api/trainingclasses/1
+Accept: application/json
+
+###
+PUT localhost:8080/api/trainingclasses/1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "name1PUT",
+  "startDate": "2022-01-01",
+  "endDate": "2022-04-01"
+}
+###
+DELETE localhost:8080/api/trainingclasses/1
+
+###
