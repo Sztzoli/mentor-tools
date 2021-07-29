@@ -53,7 +53,7 @@ public class StudentService {
         studentRepository.deleteById(id);
     }
 
-    private Student findById(Long id) {
+    public Student findById(Long id) {
         return studentRepository.findById(id).orElseThrow(() -> new StudentNotFoundException(id));
     }
 }

@@ -1,0 +1,15 @@
+POST localhost:8080/api/trainingclasses/1/registrations
+Accept: application/json
+Content-Type: application/json
+
+{
+  "studentId" : 1
+}
+
+###
+GET localhost:8080/api/trainigclasses/1/registrations
+Accept: application/json
+
+###
+GET localhost:8080/api/students/1/registrations
+Accept: application/json

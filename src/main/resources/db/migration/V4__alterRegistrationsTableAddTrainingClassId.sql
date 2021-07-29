@@ -1,0 +1,1 @@
+alter table registrations add CONSTRAINT FK_TrainingClassRegistration foreign key (training_class_id) references training_classes(id)

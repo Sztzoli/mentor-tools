@@ -51,7 +51,7 @@ public class TrainingClassService {
         trainingClassRepository.deleteById(id);
     }
 
-    private TrainingClass findById(Long id) {
+    public TrainingClass findById(Long id) {
         return trainingClassRepository.findById(id).orElseThrow(() -> new TrainingClassNotFoundException(id));
     }
 }

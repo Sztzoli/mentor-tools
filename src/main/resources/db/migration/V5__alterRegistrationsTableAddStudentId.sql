@@ -1,0 +1,1 @@
+alter table registrations add CONSTRAINT FK_StudentRegistration foreign key (student_id) references students(id)

@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Data
@@ -23,6 +24,9 @@ public class Student {
     private String githubUsername;
 
     private String comment;
+
+    @OneToMany(mappedBy = "student")
+    private Set<Registration> registrations;
 
     public Student(String name, String email, String githubUsername, String comment) {
         this.name = name;
