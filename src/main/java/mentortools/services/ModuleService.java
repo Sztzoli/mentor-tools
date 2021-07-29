@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import mentortools.commands.CreateModuleCommand;
 import mentortools.commands.UpdateModuleCommand;
 import mentortools.dtos.ModuleDto;
-import mentortools.dtos.StudentDto;
 import mentortools.exceptions.ModuleNotfoundException;
 import mentortools.models.Module;
 import mentortools.repositories.ModuleRepository;
