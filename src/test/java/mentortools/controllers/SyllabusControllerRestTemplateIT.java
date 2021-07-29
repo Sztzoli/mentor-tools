@@ -26,7 +26,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@Sql(statements = {"delete from syllabuses"})
+@Sql(statements = {
+        "alter table training_classes drop foreign key if exists FK_SyllabusTrainingClass",
+        "delete from syllabuses"})
 class SyllabusControllerRestTemplateIT {
 
     @Autowired
@@ -83,7 +85,7 @@ class SyllabusControllerRestTemplateIT {
         SyllabusDto result = template.exchange(URL + "/{id}",
                 HttpMethod.PUT,
                 new HttpEntity<>(
-                       new UpdateSyllabusCommand("nameUpdated")),
+                        new UpdateSyllabusCommand("nameUpdated")),
                 SyllabusDto.class,
                 params
         ).getBody();
