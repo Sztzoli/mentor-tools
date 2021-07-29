@@ -1,10 +1,7 @@
 package mentortools.controllers;
 
-import mentortools.commands.CreateStudentCommand;
 import mentortools.commands.CreateSyllabusCommand;
-import mentortools.commands.UpdateStudentCommand;
 import mentortools.commands.UpdateSyllabusCommand;
-import mentortools.dtos.StudentDto;
 import mentortools.dtos.SyllabusDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Sql(statements = {
