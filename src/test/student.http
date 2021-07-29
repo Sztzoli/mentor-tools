@@ -1,0 +1,34 @@
+POST localhost:8080/api/students
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "student1",
+  "email" : "student1email",
+  "githubUsername" : "student1git",
+  "comment" : "stud1comment"
+}
+
+###
+GET localhost:8080/api/students
+Accept: application/json
+
+###
+GET localhost:8080/api/students/1
+Accept: application/json
+
+###
+PUT localhost:8080/api/students/1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "student1Update",
+  "email" : "student1emailUpdate",
+  "githubUsername" : "student1gitUpdate",
+  "comment" : "stud1commentUpdate"
+}
+###
+DELETE localhost:8080/api/students/1
+
+###
