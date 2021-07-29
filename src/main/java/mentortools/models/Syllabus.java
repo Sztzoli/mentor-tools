@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Data
@@ -20,4 +21,7 @@ public class Syllabus {
     public Syllabus(String name) {
         this.name = name;
     }
+
+    @OneToMany(mappedBy = "syllabus")
+    public Set<TrainingClass> trainingClasses;
 }

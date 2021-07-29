@@ -30,3 +30,21 @@ Content-Type: application/json
 DELETE localhost:8080/api/trainingclasses/1
 
 ###
+
+POST localhost:8080/api/trainingclasses/2/syllabus
+Accept: application/json
+Content-Type: application/json
+
+{
+  "syllabusId" : 1
+}
+
+###
+
+PUT localhost:8080/api/trainingclasses/1/syllabus
+Accept: application/json
+Content-Type: application/json
+
+{
+  "syllabusId" : 2
+}
