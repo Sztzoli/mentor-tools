@@ -28,6 +28,9 @@ public class Student {
     @OneToMany(mappedBy = "student")
     private Set<Registration> registrations;
 
+    @OneToMany(mappedBy = "student")
+    private Set<LessonCompletion> lessonCompletions;
+
     public Student(String name, String email, String githubUsername, String comment) {
         this.name = name;
         this.email = email;

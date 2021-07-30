@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Embeddable;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.time.LocalDate;
 
 @Embeddable
@@ -13,6 +15,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class Exercise {
 
+    @Enumerated(EnumType.STRING)
     private ExerciseStatus exerciseStatus;
     private LocalDate exerciseDate;
     private String commitUrl;

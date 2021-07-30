@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Data
@@ -25,6 +26,9 @@ public class Lesson {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Module module;
+
+    @OneToMany(mappedBy = "lesson", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    private Set<LessonCompletion> lessonCompletions;
 
     public Lesson(String title, String url, Module module) {
         this.title = title;

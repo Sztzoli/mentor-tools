@@ -20,7 +20,7 @@ public class Module {
 
     private String url;
 
-    @OneToMany(mappedBy = "module")
+    @OneToMany(mappedBy = "module", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private Set<Lesson> lessons;
 
     public Module(String title, String url) {
