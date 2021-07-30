@@ -1,16 +1,17 @@
 package mentortools.models;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "modules")
-public class Module {
+@Table(name = "lessons")
+public class Lesson {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,11 +21,14 @@ public class Module {
 
     private String url;
 
-    @OneToMany(mappedBy = "module")
-    private Set<Lesson> lessons;
+    @ManyToOne()
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Module module;
 
-    public Module(String title, String url) {
+    public Lesson(String title, String url, Module module) {
         this.title = title;
         this.url = url;
+        this.module = module;
     }
 }

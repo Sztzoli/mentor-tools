@@ -23,6 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Sql(statements = {
+        "alter table lessons drop foreign key if exists FK_ModulesLessons",
         "alter table syllabuses_modules drop foreign key if exists FK_SyllabusSyl_Mod",
         "delete from modules",
         "delete from syllabuses"})

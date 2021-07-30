@@ -1,0 +1,29 @@
+POST localhost:8080/api/modules/1/lessons
+Accept: application/json
+Content-Type: application/json
+
+{
+  "title": "titleLesson",
+  "url": "url"
+}
+
+###
+GET localhost:8080/api/modules/1/lessons
+Accept: application/json
+
+###
+GET localhost:8080/api/modules/1/lessons/2
+Accept: application/json
+
+###
+PUT localhost:8080/api/modules/1/lessons/2
+Accept: application/json
+Content-Type: application/json
+
+{
+  "title": "titleLessonUpt",
+  "url": "url"
+}
+
+###
+DELETE localhost:8080/api/modules/1/lessons/2
