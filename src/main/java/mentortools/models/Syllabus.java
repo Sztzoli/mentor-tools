@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -24,4 +25,14 @@ public class Syllabus {
 
     @OneToMany(mappedBy = "syllabus")
     public Set<TrainingClass> trainingClasses;
+
+    @ManyToMany
+    public Set<Module> modules;
+
+    public void addModule(Module module) {
+        if (modules == null) {
+            modules = new HashSet<>();
+        }
+        modules.add(module);
+    }
 }

@@ -26,3 +26,14 @@ Content-Type: application/json
 DELETE localhost:8080/api/syllabuses/1
 
 ###
+
+POST localhost:8080/api/syllabuses/1/module
+Accept: application/json
+Content-Type: application/json
+
+{
+  "moduloId" : 1
+}
+
+###
+GET localhost:8080/api/syllabuses/1/module

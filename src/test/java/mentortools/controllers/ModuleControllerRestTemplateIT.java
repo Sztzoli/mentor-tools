@@ -23,7 +23,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@Sql(statements = {"delete from modules"})
+@Sql(statements = {
+        "alter table syllabuses_modules drop foreign key if exists FK_ModuleSyl_Mod",
+        "delete from modules"})
 class ModuleControllerRestTemplateIT {
 
     @Autowired

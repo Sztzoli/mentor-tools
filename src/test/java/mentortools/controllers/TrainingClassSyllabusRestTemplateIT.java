@@ -24,7 +24,10 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@Sql(statements = {"delete from training_classes", "delete from syllabuses"})
+@Sql(statements = {
+        "alter table syllabuses_modules drop foreign key if exists FK_SyllabusSyl_Mod",
+        "delete from training_classes",
+        "delete from syllabuses"})
 public class TrainingClassSyllabusRestTemplateIT {
 
     @Autowired

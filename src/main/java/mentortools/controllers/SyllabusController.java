@@ -4,9 +4,11 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import mentortools.commands.AddModuleToSyllabusCommand;
 import mentortools.commands.CreateSyllabusCommand;
 import mentortools.commands.UpdateSyllabusCommand;
 import mentortools.dtos.SyllabusDto;
+import mentortools.dtos.SyllabusWithModulesDto;
 import mentortools.services.SyllabusService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -71,5 +73,26 @@ public class SyllabusController {
             @PathVariable Long id
     ) {
         syllabusService.deleteById(id);
+    }
+
+    @PostMapping("/{id}/module")
+    @Operation(summary = "add module to syllabus")
+    @ApiResponse(responseCode = "201", description = "module has been added to syllabus")
+    @ApiResponse(responseCode = "400", description = "validation exception when module added to syllabus")
+    @ApiResponse(responseCode = "404", description = "syllabus not found by id")
+    @ResponseStatus(HttpStatus.CREATED)
+    public SyllabusWithModulesDto addModuleToSyllabus(
+            @PathVariable Long id,
+            @Valid @RequestBody AddModuleToSyllabusCommand command
+            ) {
+        return syllabusService.addModuleToSyllabus(id, command);
+    }
+
+    @GetMapping("/{id}/module")
+    @Operation(summary ="receive a syllabus with modules" )
+    public SyllabusWithModulesDto findModulesOfSyllabus(
+            @PathVariable Long id
+    ) {
+        return syllabusService.findModulesOfSyllabus(id);
     }
 }
