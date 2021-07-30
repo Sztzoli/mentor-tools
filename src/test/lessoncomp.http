@@ -1,0 +1,56 @@
+POST localhost:8080/api/students/1/lessioncompletition
+Accept: application/json
+Content-Type: application/json
+
+{
+  "lessonId": "1",
+  "video": {
+    "videoStatus" : "COMPLETED",
+    "videoDate" : "2021-01-01"
+  },
+  "exercise" : {
+    "exerciseStatus": "NOT_COMPLETED"
+  }
+}
+
+###
+GET localhost:8080/api/students/1/lessioncompletition
+Accept: application/json
+
+###
+POST localhost:8080/api/students/1/lessioncompletition
+Accept: application/json
+Content-Type: application/json
+
+{
+  "lessonId": "2",
+  "video": {
+    "videoStatus" : "COMPLETED",
+    "videoDate" : "2021-01-01"
+  },
+  "exercise" : {
+    "exerciseStatus": "COMPLETED",
+    "exerciseDate" : "2021-01-01",
+    "commitUrl" : "commit"
+  }
+}
+
+###
+PUT localhost:8080/api/students/1/lessioncompletition
+Accept: application/json
+Content-Type: application/json
+
+{
+  "lessonId": "1",
+  "video": {
+    "videoStatus" : "NOT_COMPLETED",
+    "videoDate" : null
+  },
+  "exercise" : {
+    "exerciseStatus": "COMPLETED",
+    "exerciseDate" : "2021-01-01",
+    "commitUrl" : "commit"
+  }
+}
+###
+DELETE localhost:8080/api/students/1/lessioncompletition/1
