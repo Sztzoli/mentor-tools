@@ -113,23 +113,6 @@ class LessonControllerRestTemplateIT {
                 .hasSize(0);
     }
 
-    @Test
-    void testModuleNotFound() {
-        params.put("id","-1");
-        Problem problem = template.getForObject(URL + "/{lessonId}", Problem.class, params);
-
-        assertEquals(Status.NOT_FOUND, problem.getStatus());
-        assertEquals("Module not found by id: -1", problem.getDetail());
-    }
-
-    @Test
-    void testLessonNotFound() {
-        params.put("lessonId","-1");
-        Problem problem = template.getForObject(URL + "/{lessonId}", Problem.class, params);
-
-        assertEquals(Status.NOT_FOUND, problem.getStatus());
-        assertEquals("Lesson not found by id: -1", problem.getDetail());
-    }
 
     @Test
     void invalidTitleCreateEmpty() {

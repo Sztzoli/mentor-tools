@@ -5,7 +5,6 @@ import mentortools.commands.AddLessonToModuloCommand;
 import mentortools.commands.UpdateLessonOfModuloCommand;
 import mentortools.dtos.LessonDto;
 import mentortools.exceptions.LessonNotFoundException;
-import mentortools.exceptions.ModuleNotfoundException;
 import mentortools.models.Lesson;
 import mentortools.models.Module;
 import mentortools.repositories.LessonRepository;
@@ -33,10 +32,7 @@ public class LessonService {
     }
 
     public LessonDto findLessonById(Long id, Long lessonId) {
-        Lesson lesson = findById(lessonId);
-        if (!lesson.getModule().getId().equals(id)){
-            throw new ModuleNotfoundException(id);
-        }
+        Lesson lesson = lessonRepository.findByIdAndModule_Id(lessonId,id);
         return mapper.map(lesson, LessonDto.class);
     }
 
@@ -53,10 +49,7 @@ public class LessonService {
 
     @Transactional
     public LessonDto updateLessonOfModule(Long id, Long lessonId, UpdateLessonOfModuloCommand command) {
-        Lesson lesson = findById(lessonId);
-        if (!lesson.getModule().getId().equals(id)){
-            throw new ModuleNotfoundException(id);
-        }
+        Lesson lesson = lessonRepository.findByIdAndModule_Id(lessonId,id);
         lesson.setTitle(command.getTitle());
         lesson.setUrl(command.getUrl());
         return mapper.map(lesson, LessonDto.class);
@@ -64,10 +57,7 @@ public class LessonService {
 
     @Transactional
     public void deleteLesson(Long id, Long lessonId) {
-        Lesson lesson = findById(lessonId);
-        if (!lesson.getModule().getId().equals(id)){
-            throw new ModuleNotfoundException(id);
-        }
+        Lesson lesson = lessonRepository.findByIdAndModule_Id(lessonId,id);
        lessonRepository.delete(lesson);
     }
 }
